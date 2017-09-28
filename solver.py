@@ -9,8 +9,9 @@ for char in string.letters + string.digits + string.punctuation:
     testCase[19] = char
     testCaseStr = ''.join(testCase)
 
-    process = subprocess.Popen(['./a.out'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-    process.stdin.write(testCaseStr)
+    process = subprocess.Popen(['nc', 'localhost', '1337'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    process.stdin.write(testCaseStr + '\n')
     res = process.stdout.readline()
     if 'Sucess' in res:
         print "Key is %s" % testCaseStr
+        break
