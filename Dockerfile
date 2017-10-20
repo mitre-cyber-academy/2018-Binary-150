@@ -1,4 +1,4 @@
-FROM mitre-centos
+FROM centos
 
 ARG flag
 
@@ -18,4 +18,4 @@ RUN pwgen -ys 20 1 > key
 
 USER ctf
 EXPOSE 1337
-CMD /usr/bin/socat TCP-LISTEN:1337,fork,reuseaddr exec:/home/ctf/challenge,stderr,pty,echo=0
+CMD /usr/bin/socat TCP-LISTEN:1337,fork,reuseaddr system:/home/ctf/challenge,pty,echo=0
