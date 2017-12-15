@@ -1,6 +1,6 @@
 FROM ubuntu
 
-ARG flag
+ARG FLAG
 
 RUN apt update -y && \
 	apt install -y gcc socat pwgen
