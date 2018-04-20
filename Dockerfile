@@ -10,7 +10,7 @@ RUN useradd -m -s /bin/bash ctf
 WORKDIR /home/ctf
 COPY verify.c .
 RUN gcc verify.c -o challenge
-RUN echo "${flag}" > flag
+RUN echo "${FLAG}" > flag
 RUN pwgen -ys 20 1 > key
 
 USER ctf
